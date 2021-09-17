@@ -1,11 +1,15 @@
 // ----------------- VARIABLES ----------------------------
-var pierre = "pierre";
-var feuille = "feuille";
-var ciseaux = "ciseaux";
 
+var choice = [
+    "pierre",
+    "feuille",
+    "ciseaux"
+];
 
 // ----------------- FUNCTIONS --------------------------
-
+function randomComputerChoice(choice){
+    return choice[Math.floor(Math.random() * choice.length)];
+};
 
 // ------------------ METHODS ------------------------------
 
@@ -18,8 +22,13 @@ do {
 alert("Bienvenue " + userName + ", le jeu va commencer !");
 
 // User's choice
-
 do {
-    var userChoice = prompt("Vous pouvez choisir entre pierre, feuille et ciseaux, saisissez votre choix ci dessous : ");
+    var userChoice = prompt("Vous pouvez choisir entre pierre, feuille et ciseaux, saisissez votre choix ci dessous : ").toLowerCase();
+    
 } 
-while(userChoice !== "pierre" && userChoice !== "feuille" && userChoice !== "ciseaux");
+while(userChoice !== choice[0] && userChoice !== choice[1] && userChoice !== choice[2]);
+
+// Computer choice
+var computerChoice = randomComputerChoice(choice);
+console.log(computerChoice);
+
